@@ -1,6 +1,6 @@
 {
   "name": "react-clipboard.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Clipboard.js wrapper for ReactJS",
   "main": "scripts/index.jsx",
   "scripts": {
@@ -12,6 +12,13 @@
     "clipboard",
     "react"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nihey/react-clipboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nihey/react-clipboard/issues"
+  },
   "author": "Nihey Takizawa <nihey.takizawa@gmail.com>",
   "license": "CC0",
   "dependencies": {

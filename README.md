@@ -2,9 +2,31 @@
 
 React wrapper for [clipboard.js](http://zenorocha.github.io/clipboard.js/)
 
-# Usage
+[![Dependency
+Status](https://david-dm.org/nihey/react-clipboard.png)](https://david-dm.org/nihey/react-clipboard)
 
-TBA
+# Installation
+```
+$ npm i --save react-clipboard.js
+```
+
+# Usage
+```
+var React = require('react');
+var ClipboardButton = require('react-clipboard.js')
+
+var MyView = React.createClass({
+  render: function() {
+    return <div>
+      <ClipboardButton data-clipboard-text="I'll be coppied">
+        copy to clipboard
+      </ClipboardButton>
+    </div>;
+  },
+});
+
+React.render(<MyView/>, document.getElementById('react-body'));
+```
 
 # License
 
