@@ -1,0 +1,28 @@
+{
+  "name": "react-clipboard.js",
+  "version": "0.0.1",
+  "description": "Clipboard.js wrapper for ReactJS",
+  "main": "scripts/index.jsx",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack",
+    "install": "./node_modules/.bin/webpack -p",
+    "test": "./node_modules/.bin/eslint . && npm run build && npm run build -- -p"
+  },
+  "keywords": [
+    "clipboard",
+    "react"
+  ],
+  "author": "Nihey Takizawa <nihey.takizawa@gmail.com>",
+  "license": "CC0",
+  "dependencies": {
+    "babel-core": "^5.6.15",
+    "babel-loader": "^5.3.1",
+    "clipboard": "^1.4.0",
+    "node-libs-browser": "^0.5.2",
+    "react": "^0.13.3",
+    "webpack": "^1.10.1"
+  },
+  "devDependencies": {
+    "eslint": "^1.6.0"
+  }
+}
