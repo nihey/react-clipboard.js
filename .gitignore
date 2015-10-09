@@ -4,6 +4,3 @@
 # Dependencies
 node_modules/
 bower_components/
-
-# Built files
-dist/
