@@ -1,6 +1,6 @@
 {
   "name": "react-clipboard.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Clipboard.js wrapper for ReactJS",
   "main": "scripts/index.jsx",
   "scripts": {
