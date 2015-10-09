@@ -1,6 +1,7 @@
 import React from 'react';
 import Clipboard from 'clipboard';
 
+var counter = 0;
 var ClipboardButton = React.createClass({
   componentDidMount: function() {
     this.clipboard = new Clipboard(`#${this.state.id}`,
@@ -9,7 +10,7 @@ var ClipboardButton = React.createClass({
 
   getInitialState: function() {
     return {
-      id: Math.random().toString(36).split('.')[1],
+      id: `__react_clipboard_${counter++}__`,
     };
   },
 
