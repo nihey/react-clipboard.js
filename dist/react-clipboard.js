@@ -7,7 +7,7 @@
 		exports["ReactClipboard"] = factory(require("react"), require("clipboard"));
 	else
 		root["ReactClipboard"] = factory(root["React"], root["Clipboard"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_31__, __WEBPACK_EXTERNAL_MODULE_32__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_42__, __WEBPACK_EXTERNAL_MODULE_43__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -64,17 +64,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classCallCheck = __webpack_require__(29)['default'];
 
-	var _interopRequireDefault = __webpack_require__(30)['default'];
+	var _extends = __webpack_require__(30)['default'];
+
+	var _Object$keys = __webpack_require__(38)['default'];
+
+	var _interopRequireDefault = __webpack_require__(41)['default'];
 
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
 
-	var _react = __webpack_require__(31);
+	var _react = __webpack_require__(42);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _clipboard = __webpack_require__(32);
+	var _clipboard = __webpack_require__(43);
 
 	var _clipboard2 = _interopRequireDefault(_clipboard);
 
@@ -82,6 +86,43 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ClipboardButton = (function (_React$Component) {
 	  _inherits(ClipboardButton, _React$Component);
+
+	  _createClass(ClipboardButton, [{
+	    key: 'propsWith',
+
+	    /* Returns a object with all props that fulfill a certain naming pattern
+	     *
+	     * @param {RegExp} regexp - Regular expression representing which pattern
+	     *                          you'll be searching for.
+	     * @param {Boolean} remove - Determines if the regular expression should be
+	     *                           removed when transmitting the key from the props
+	     *                           to the new object.
+	     *
+	     * e.g:
+	     *
+	     * // Considering:
+	     * // this.props = {option-foo: 1, onBar: 2, data-foobar: 3 data-baz: 4};
+	     *
+	     * // *RegExps not using // so that this comment doesn't break up
+	     * this.propsWith(option-*, true); // returns {foo: 1}
+	     * this.propsWith(on*, true); // returns {Bar: 2}
+	     * this.propsWith(data-*); // returns {data-foobar: 1, data-baz: 4}
+	     */
+	    value: function propsWith(regexp) {
+	      var remove = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+
+	      var object = {};
+
+	      _Object$keys(this.props).forEach(function (key) {
+	        if (key.search(regexp) !== -1) {
+	          var objectKey = remove ? key.replace(regexp, '') : key;
+	          object[objectKey] = this.props[key];
+	        }
+	      }, this);
+
+	      return object;
+	    }
+	  }]);
 
 	  function ClipboardButton(props) {
 	    _classCallCheck(this, ClipboardButton);
@@ -93,20 +134,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(ClipboardButton, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.clipboard = new _clipboard2['default']('#' + this.id, this.props.options || {});
+	      // Support old API by trying to assign this.props.options first;
+	      var options = this.props.options || this.propsWith(/^option-/, true);
+	      this.clipboard = new _clipboard2['default']('#' + this.id, options);
+
+	      var callbacks = this.propsWith(/^on/, true);
+	      _Object$keys(callbacks).forEach(function (callback) {
+	        this.clipboard.on(callback.toLowerCase(), this.props['on' + callback]);
+	      }, this);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var attributes = this.propsWith(/^data-/);
 	      return _react2['default'].createElement(
 	        'button',
-	        {
+	        _extends({
 	          id: this.id,
 	          className: this.props.className || '',
-	          style: this.props.style || {},
-	          'data-clipboard-text': this.props['data-clipboard-text'],
-	          'data-clipboard-target': this.props['data-clipboard-target']
-	        },
+	          style: this.props.style || {}
+	        }, attributes),
 	        this.props.children
 	      );
 	    }
@@ -556,6 +603,151 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _Object$assign = __webpack_require__(31)["default"];
+
+	exports["default"] = _Object$assign || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];
+
+	    for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }
+
+	  return target;
+	};
+
+	exports.__esModule = true;
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(32), __esModule: true };
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(33);
+	module.exports = __webpack_require__(13).Object.assign;
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.3.1 Object.assign(target, source)
+	var $def = __webpack_require__(11);
+
+	$def($def.S + $def.F, 'Object', {assign: __webpack_require__(34)});
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.1 Object.assign(target, source, ...)
+	var toObject = __webpack_require__(35)
+	  , IObject  = __webpack_require__(7)
+	  , enumKeys = __webpack_require__(36)
+	  , has      = __webpack_require__(37);
+
+	// should work with symbols and should have deterministic property order (V8 bug)
+	module.exports = __webpack_require__(14)(function(){
+	  var a = Object.assign
+	    , A = {}
+	    , B = {}
+	    , S = Symbol()
+	    , K = 'abcdefghijklmnopqrst';
+	  A[S] = 7;
+	  K.split('').forEach(function(k){ B[k] = k; });
+	  return a({}, A)[S] != 7 || Object.keys(a({}, B)).join('') != K;
+	}) ? function assign(target, source){   // eslint-disable-line no-unused-vars
+	  var T = toObject(target)
+	    , l = arguments.length
+	    , i = 1;
+	  while(l > i){
+	    var S      = IObject(arguments[i++])
+	      , keys   = enumKeys(S)
+	      , length = keys.length
+	      , j      = 0
+	      , key;
+	    while(length > j)if(has(S, key = keys[j++]))T[key] = S[key];
+	  }
+	  return T;
+	} : Object.assign;
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.13 ToObject(argument)
+	var defined = __webpack_require__(9);
+	module.exports = function(it){
+	  return Object(defined(it));
+	};
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// all enumerable object keys, includes symbols
+	var $ = __webpack_require__(4);
+	module.exports = function(it){
+	  var keys       = $.getKeys(it)
+	    , getSymbols = $.getSymbols;
+	  if(getSymbols){
+	    var symbols = getSymbols(it)
+	      , isEnum  = $.isEnum
+	      , i       = 0
+	      , key;
+	    while(symbols.length > i)if(isEnum.call(it, key = symbols[i++]))keys.push(key);
+	  }
+	  return keys;
+	};
+
+/***/ },
+/* 37 */
+/***/ function(module, exports) {
+
+	var hasOwnProperty = {}.hasOwnProperty;
+	module.exports = function(it, key){
+	  return hasOwnProperty.call(it, key);
+	};
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(39), __esModule: true };
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(40);
+	module.exports = __webpack_require__(13).Object.keys;
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.14 Object.keys(O)
+	var toObject = __webpack_require__(35);
+
+	__webpack_require__(10)('keys', function($keys){
+	  return function keys(it){
+	    return $keys(toObject(it));
+	  };
+	});
+
+/***/ },
+/* 41 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -569,16 +761,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 
 /***/ },
-/* 31 */
+/* 42 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_31__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_42__;
 
 /***/ },
-/* 32 */
+/* 43 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_32__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_43__;
 
 /***/ }
 /******/ ])
