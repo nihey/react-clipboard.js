@@ -7,7 +7,8 @@
   "scripts": {
     "build-debug": "webpack",
     "build": "gulp build",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "test": "eslint index.js && gulp build"
   },
   "keywords": [
     "clipboard",
@@ -28,9 +29,11 @@
   },
   "devDependencies": {
     "babel-core": "^5.8.23",
+    "babel-eslint": "^4.1.3",
     "babel-loader": "^5.3.2",
     "babel-runtime": "^5.8.20",
     "browser-sync": "^2.8.2",
+    "eslint": "^1.6.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-rename": "^1.2.2",
