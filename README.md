@@ -31,7 +31,7 @@ var MyView = React.createClass({
 React.render(<MyView/>, document.getElementById('react-body'));
 ```
 
-- If you want to provide any contructor option as in `new Clipboard('#id', options)`,
+- If you want to provide any constructor option as in `new Clipboard('#id', options)`,
   you may use `option-*` attributes
 
 - callbacks will be connected via `on*` attributes (such as onSuccess)

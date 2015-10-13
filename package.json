@@ -1,6 +1,6 @@
 {
   "name": "react-clipboard.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Clipboard.js wrapper for ReactJS",
   "main": "index.js",
   "browser": "dist/react-clipboard.js",
@@ -12,7 +12,8 @@
   },
   "keywords": [
     "clipboard",
-    "react"
+    "react",
+    "react-component"
   ],
   "repository": {
     "type": "git",
