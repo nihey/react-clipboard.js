@@ -146,7 +146,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var attributes = this.propsWith(/^data-/);
+	      var dataAttributes = this.propsWith(/^data-/);
+	      var attributes = this.propsWith(/^button-/, true);
 	      return _react2['default'].createElement(
 	        'button',
 	        _extends({
@@ -154,7 +155,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          type: this.props.type || 'button',
 	          className: this.props.className || '',
 	          style: this.props.style || {}
-	        }, attributes),
+	        }, dataAttributes, attributes),
 	        this.props.children
 	      );
 	    }

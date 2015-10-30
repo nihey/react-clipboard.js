@@ -69,6 +69,24 @@ var MyView = React.createClass({
 React.render(<MyView/>, document.getElementById('react-body'));
 ```
 
+Default html properties may be passed with the `button-*` pattern:
+```
+var React = require('react');
+var ClipboardButton = require('react-clipboard.js')
+
+var MyView = React.createClass({
+  render: function() {
+    return <div>
+      <ClipboardButton data-clipboard-text="I'll be copied" button-title="I'm a tooltip">
+        copy to clipboard
+      </ClipboardButton>
+    </div>;
+  },
+});
+
+React.render(<MyView/>, document.getElementById('react-body'));
+```
+
 # License
 
 This code is released under
