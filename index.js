@@ -60,6 +60,7 @@ export default class ClipboardButton extends React.Component {
     return (
       <button
         id={this.id}
+        type={this.props.type || 'button'}
         className={this.props.className || ''}
         style={this.props.style || {}}
         {...attributes}
