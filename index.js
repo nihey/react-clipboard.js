@@ -44,6 +44,10 @@ export default class ClipboardButton extends React.Component {
     this.id = `__react_clipboard_${counter++}__`;
   }
 
+  componentWillUnmount() {
+    this.clipboard && this.clipboard.destroy();
+  }
+
   componentDidMount() {
     // Support old API by trying to assign this.props.options first;
     let options = this.props.options || this.propsWith(/^option-/, true);
