@@ -132,6 +132,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  _createClass(ClipboardButton, [{
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this.clipboard && this.clipboard.destroy();
+	    }
+	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      // Support old API by trying to assign this.props.options first;
@@ -146,18 +151,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var dataAttributes = this.propsWith(/^data-/);
-	      var attributes = this.propsWith(/^button-/, true);
-	      return _react2['default'].createElement(
-	        'button',
-	        _extends({
-	          id: this.id,
-	          type: this.props.type || 'button',
-	          className: this.props.className || '',
-	          style: this.props.style || {}
-	        }, dataAttributes, attributes),
-	        this.props.children
-	      );
+	      var attributes = _extends({
+	        id: this.id,
+	        type: this.props.type || 'button',
+	        className: this.props.className || '',
+	        style: this.props.style || {}
+	      }, this.propsWith(/^data-/), this.propsWith(/^button-/, true));
+
+	      return _react2['default'].createElement(this.props.component || 'button', attributes, this.props.children);
 	    }
 	  }]);
 
@@ -309,12 +310,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	// most Object methods by ES6 should accept primitives
+	var $def  = __webpack_require__(11)
+	  , core  = __webpack_require__(13)
+	  , fails = __webpack_require__(14);
 	module.exports = function(KEY, exec){
 	  var $def = __webpack_require__(11)
-	    , fn   = (__webpack_require__(13).Object || {})[KEY] || Object[KEY]
+	    , fn   = (core.Object || {})[KEY] || Object[KEY]
 	    , exp  = {};
 	  exp[KEY] = exec(fn);
-	  $def($def.S + $def.F * __webpack_require__(14)(function(){ fn(1); }), 'Object', exp);
+	  $def($def.S + $def.F * fails(function(){ fn(1); }), 'Object', exp);
 	};
 
 /***/ },
@@ -382,7 +386,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 13 */
 /***/ function(module, exports) {
 
-	var core = module.exports = {version: '1.2.3'};
+	var core = module.exports = {version: '1.2.5'};
 	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },

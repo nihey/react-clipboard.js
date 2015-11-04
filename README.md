@@ -16,7 +16,7 @@ $ npm i --save react-clipboard.js
 You can use `clipboard.js` original `data-*` attributes:
 ```
 var React = require('react');
-var ClipboardButton = require('react-clipboard.js')
+var ClipboardButton = require('react-clipboard.js');
 
 var MyView = React.createClass({
   render: function() {
@@ -37,7 +37,7 @@ React.render(<MyView/>, document.getElementById('react-body'));
 - callbacks will be connected via `on*` attributes (such as onSuccess)
 ```
 var React = require('react');
-var ClipboardButton = require('react-clipboard.js')
+var ClipboardButton = require('react-clipboard.js');
 
 var MyView = React.createClass({
   onSuccess: function() {
@@ -69,10 +69,29 @@ var MyView = React.createClass({
 React.render(<MyView/>, document.getElementById('react-body'));
 ```
 
+Custom HTML tags may be used as well:
+```
+var React = require('react');
+var Clipboard = require('react-clipboard.js');
+
+var MyView = React.createClass({
+  render: function() {
+    // Clipboard is now rendered as an '<a>'
+    return <div>
+      <Clipboard component="a" button-href="#" data-clipboard-text="I'll be copied">
+        copy to clipboard
+      </Clipboard>
+    </div>;
+  },
+});
+
+...
+```
+
 Default html properties may be passed with the `button-*` pattern:
 ```
 var React = require('react');
-var ClipboardButton = require('react-clipboard.js')
+var ClipboardButton = require('react-clipboard.js');
 
 var MyView = React.createClass({
   render: function() {
