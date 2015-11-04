@@ -60,19 +60,19 @@ export default class ClipboardButton extends React.Component {
   }
 
   render() {
-    let dataAttributes = this.propsWith(/^data-/);
-    let attributes = this.propsWith(/^button-/, true);
-    return (
-      <button
-        id={this.id}
-        type={this.props.type || 'button'}
-        className={this.props.className || ''}
-        style={this.props.style || {}}
-        {...dataAttributes}
-        {...attributes}
-      >
-        {this.props.children}
-      </button>
+    let attributes = {
+      id: this.id,
+      type: this.props.type || 'button',
+      className: this.props.className || '',
+      style: this.props.style || {},
+      ...this.propsWith(/^data-/),
+      ...this.propsWith(/^button-/, true),
+    };
+
+    return React.createElement(
+      this.props.component || 'button',
+      attributes,
+      this.props.children
     );
   }
 }
