@@ -14,7 +14,7 @@ $ npm i --save react-clipboard.js
 
 # Usage
 You can use `clipboard.js` original `data-*` attributes:
-```
+```javascript
 var React = require('react');
 var ClipboardButton = require('react-clipboard.js');
 
@@ -35,7 +35,7 @@ React.render(<MyView/>, document.getElementById('react-body'));
   you may use `option-*` attributes
 
 - callbacks will be connected via `on*` attributes (such as onSuccess)
-```
+```javascript
 var React = require('react');
 var ClipboardButton = require('react-clipboard.js');
 
@@ -70,7 +70,7 @@ React.render(<MyView/>, document.getElementById('react-body'));
 ```
 
 Custom HTML tags may be used as well:
-```
+```javascript
 var React = require('react');
 var Clipboard = require('react-clipboard.js');
 
@@ -89,7 +89,7 @@ var MyView = React.createClass({
 ```
 
 Default html properties may be passed with the `button-*` pattern:
-```
+```javascript
 var React = require('react');
 var ClipboardButton = require('react-clipboard.js');
 

@@ -1,8 +1,8 @@
 {
   "name": "react-clipboard.js",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Clipboard.js wrapper for ReactJS",
-  "main": "index.js",
+  "main": "dist/react-clipboard.js",
   "browser": "dist/react-clipboard.js",
   "scripts": {
     "build-debug": "webpack",
