@@ -45,7 +45,7 @@ var MyView = React.createClass({
   },
 
   getText: function() {
-    return 'I'll be copied';
+    return 'I\'ll be copied';
   },
 
   render: function() {
