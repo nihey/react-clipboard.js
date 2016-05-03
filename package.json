@@ -1,14 +1,14 @@
 {
   "name": "react-clipboard.js",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "Clipboard.js wrapper for ReactJS",
   "main": "dist/react-clipboard.js",
   "browser": "dist/react-clipboard.js",
   "scripts": {
-    "build-debug": "webpack",
-    "build": "gulp build",
+    "build-debug": "webpack -d",
+    "build": "webpack && webpack -p --output-filename react-clipboard.min.js",
     "watch": "webpack --watch",
-    "test": "eslint index.js && gulp build"
+    "test": "eslint index.js && npm run build"
   },
   "keywords": [
     "clipboard",
@@ -17,10 +17,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nihey/react-clipboard.git"
+    "url": "https://github.com/nihey/react-clipboard.js.git"
   },
   "bugs": {
-    "url": "https://github.com/nihey/react-clipboard/issues"
+    "url": "https://github.com/nihey/react-clipboard.js/issues"
   },
   "author": "Nihey Takizawa <nihey.takizawa@gmail.com>",
   "license": "CC0",
@@ -37,11 +37,6 @@
     "babel-runtime": "^5.8.20",
     "browser-sync": "^2.8.2",
     "eslint": "^1.6.0",
-    "gulp": "^3.9.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.3.0",
-    "gulp-webpack": "^1.5.0",
     "webpack": "^1.12.1"
   }
 }
