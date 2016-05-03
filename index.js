@@ -1,11 +1,14 @@
 import React from 'react';
 import Clipboard from 'clipboard';
 
-let counter = 0;
-
 export default class ClipboardButton extends React.Component {
   static propTypes: {
      options: React.PropTypes.object,
+     type: React.PropTypes.string,
+     className: React.PropTypes.string,
+     style: React.PropTypes.string,
+     component: React.PropTypes.string,
+     children: React.PropTypes.object.isRequired
   }
 
   /* Returns a object with all props that fulfill a certain naming pattern
@@ -39,11 +42,6 @@ export default class ClipboardButton extends React.Component {
     return object;
   }
 
-  constructor(props) {
-    super(props);
-    this.id = `__react_clipboard_${counter++}__`;
-  }
-
   componentWillUnmount() {
     this.clipboard && this.clipboard.destroy();
   }
@@ -51,7 +49,7 @@ export default class ClipboardButton extends React.Component {
   componentDidMount() {
     // Support old API by trying to assign this.props.options first;
     let options = this.props.options || this.propsWith(/^option-/, true);
-    this.clipboard = new Clipboard(`#${this.id}`, options);
+    this.clipboard = new Clipboard(this.refs.element, options);
 
     let callbacks = this.propsWith(/^on/, true);
     Object.keys(callbacks).forEach(function(callback) {
@@ -61,10 +59,10 @@ export default class ClipboardButton extends React.Component {
 
   render() {
     let attributes = {
-      id: this.id,
       type: this.props.type || 'button',
       className: this.props.className || '',
       style: this.props.style || {},
+      ref: 'element',
       ...this.propsWith(/^data-/),
       ...this.propsWith(/^button-/, true),
     };
