@@ -5,7 +5,7 @@ React wrapper for [clipboard.js](http://zenorocha.github.io/clipboard.js/)
 [![Build
 Status](https://travis-ci.org/nihey/react-clipboard.svg)](https://travis-ci.org/nihey/react-clipboard)
 [![Dependency
-Status](https://david-dm.org/nihey/react-clipboard.png)](https://david-dm.org/nihey/react-clipboard)
+Status](https://david-dm.org/nihey/react-clipboard.js.png)](https://david-dm.org/nihey/react-clipboard.js)
 
 # Installation
 ```
