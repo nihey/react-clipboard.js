@@ -49,7 +49,11 @@ export default class ClipboardButton extends React.Component {
   componentDidMount() {
     // Support old API by trying to assign this.props.options first;
     let options = this.props.options || this.propsWith(/^option-/, true);
-    this.clipboard = new Clipboard(this.refs.element, options);
+    let element = this.refs.element;
+    if (React.version.match(/0\.13(.*)/)) {
+      element = this.refs.element.getDOMNode();
+    }
+    this.clipboard = new Clipboard(element, options);
 
     let callbacks = this.propsWith(/^on/, true);
     Object.keys(callbacks).forEach(function(callback) {
