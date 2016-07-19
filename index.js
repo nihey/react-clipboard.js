@@ -29,11 +29,11 @@ export default class ClipboardButton extends React.Component {
    * this.propsWith(data-*); // returns {data-foobar: 1, data-baz: 4}
    */
   propsWith(regexp, remove=false) {
-    let object = {};
+    const object = {};
 
-    Object.keys(this.props).forEach(function(key) {
+    Object.keys(this.props).forEach(function (key) {
       if (key.search(regexp) !== -1) {
-        let objectKey = remove ? key.replace(regexp, '') : key;
+        const objectKey = remove ? key.replace(regexp, '') : key;
         object[objectKey] = this.props[key];
       }
     }, this);
@@ -47,22 +47,20 @@ export default class ClipboardButton extends React.Component {
 
   componentDidMount() {
     // Support old API by trying to assign this.props.options first;
-    let options = this.props.options || this.propsWith(/^option-/, true);
-    let element = this.refs.element;
-    if (React.version.match(/0\.13(.*)/)) {
-      element = this.refs.element.getDOMNode();
-    }
+    const options = this.props.options || this.propsWith(/^option-/, true);
+    const element = React.version.match(/0\.13(.*)/)
+        ? this.refs.element.getDOMNode() : this.refs.element;
     const Clipboard = require('clipboard');
     this.clipboard = new Clipboard(element, options);
 
-    let callbacks = this.propsWith(/^on/, true);
-    Object.keys(callbacks).forEach(function(callback) {
+    const callbacks = this.propsWith(/^on/, true);
+    Object.keys(callbacks).forEach(function (callback) {
       this.clipboard.on(callback.toLowerCase(), this.props['on' + callback]);
     }, this);
   }
 
   render() {
-    let attributes = {
+    const attributes = {
       type: this.props.type || 'button',
       className: this.props.className || '',
       style: this.props.style || {},

@@ -132,10 +132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function componentDidMount() {
 	      // Support old API by trying to assign this.props.options first;
 	      var options = this.props.options || this.propsWith(/^option-/, true);
-	      var element = this.refs.element;
-	      if (_react2['default'].version.match(/0\.13(.*)/)) {
-	        element = this.refs.element.getDOMNode();
-	      }
+	      var element = _react2['default'].version.match(/0\.13(.*)/) ? this.refs.element.getDOMNode() : this.refs.element;
 	      var Clipboard = __webpack_require__(41);
 	      this.clipboard = new Clipboard(element, options);
 
