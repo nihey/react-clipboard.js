@@ -7,7 +7,7 @@ export default class ClipboardButton extends React.Component {
      className: React.PropTypes.string,
      style: React.PropTypes.string,
      component: React.PropTypes.string,
-     children: React.PropTypes.object.isRequired
+     children: React.PropTypes.object
   }
 
   /* Returns a object with all props that fulfill a certain naming pattern
