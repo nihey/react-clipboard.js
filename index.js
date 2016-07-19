@@ -1,5 +1,4 @@
 import React from 'react';
-import Clipboard from 'clipboard';
 
 export default class ClipboardButton extends React.Component {
   static propTypes: {
@@ -53,6 +52,7 @@ export default class ClipboardButton extends React.Component {
     if (React.version.match(/0\.13(.*)/)) {
       element = this.refs.element.getDOMNode();
     }
+    const Clipboard = require('clipboard');
     this.clipboard = new Clipboard(element, options);
 
     let callbacks = this.propsWith(/^on/, true);
