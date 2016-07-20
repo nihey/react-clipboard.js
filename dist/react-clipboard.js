@@ -78,10 +78,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _clipboard = __webpack_require__(41);
-
-	var _clipboard2 = _interopRequireDefault(_clipboard);
-
 	var ClipboardButton = (function (_React$Component) {
 	  _inherits(ClipboardButton, _React$Component);
 
@@ -136,11 +132,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function componentDidMount() {
 	      // Support old API by trying to assign this.props.options first;
 	      var options = this.props.options || this.propsWith(/^option-/, true);
-	      var element = this.refs.element;
-	      if (_react2['default'].version.match(/0\.13(.*)/)) {
-	        element = this.refs.element.getDOMNode();
-	      }
-	      this.clipboard = new _clipboard2['default'](element, options);
+	      var element = _react2['default'].version.match(/0\.13(.*)/) ? this.refs.element.getDOMNode() : this.refs.element;
+	      var Clipboard = __webpack_require__(41);
+	      this.clipboard = new Clipboard(element, options);
 
 	      var callbacks = this.propsWith(/^on/, true);
 	      _Object$keys(callbacks).forEach(function (callback) {
