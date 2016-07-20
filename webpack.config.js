@@ -5,7 +5,7 @@ module.exports = {
   output: {
     path: path.resolve(path.join(__dirname, '.', 'dist')),
     library: 'ReactClipboard',
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs2',
     filename: 'react-clipboard.js'
   },
   module: {
