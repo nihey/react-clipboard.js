@@ -31,7 +31,7 @@ export default class ClipboardButton extends React.Component {
   propsWith(regexp, remove=false) {
     const object = {};
 
-    Object.keys(this.props).forEach(function (key) {
+    Object.keys(this.props).forEach(function(key) {
       if (key.search(regexp) !== -1) {
         const objectKey = remove ? key.replace(regexp, '') : key;
         object[objectKey] = this.props[key];
@@ -54,7 +54,7 @@ export default class ClipboardButton extends React.Component {
     this.clipboard = new Clipboard(element, options);
 
     const callbacks = this.propsWith(/^on/, true);
-    Object.keys(callbacks).forEach(function (callback) {
+    Object.keys(callbacks).forEach(function(callback) {
       this.clipboard.on(callback.toLowerCase(), this.props['on' + callback]);
     }, this);
   }
