@@ -61,7 +61,7 @@ export default class ClipboardButton extends React.Component {
 
   render() {
     const attributes = {
-      type: this.props.type || 'button',
+      type: this.getType(),
       className: this.props.className || '',
       style: this.props.style || {},
       ref: 'element',
@@ -70,9 +70,22 @@ export default class ClipboardButton extends React.Component {
     };
 
     return React.createElement(
-      this.props.component || 'button',
+      this.getComponent(),
       attributes,
       this.props.children
     );
+  }
+
+  getType() {
+    if (this.getComponent() === 'button' || this.getComponent() === 'input') {
+      return this.props.type || 'button';
+    }
+    else {
+      return undefined;
+    }
+  }
+
+  getComponent() {
+    return this.props.component || 'button';
   }
 }
