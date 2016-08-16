@@ -145,13 +145,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'render',
 	    value: function render() {
 	      var attributes = _extends({
-	        type: this.props.type || 'button',
+	        type: this.getType(),
 	        className: this.props.className || '',
 	        style: this.props.style || {},
 	        ref: 'element'
 	      }, this.propsWith(/^data-/), this.propsWith(/^button-/, true));
 
-	      return _react2['default'].createElement(this.props.component || 'button', attributes, this.props.children);
+	      return _react2['default'].createElement(this.getComponent(), attributes, this.props.children);
+	    }
+	  }, {
+	    key: 'getType',
+	    value: function getType() {
+	      if (this.getComponent() === 'button' || this.getComponent() === 'input') {
+	        return this.props.type || 'button';
+	      } else {
+	        return undefined;
+	      }
+	    }
+	  }, {
+	    key: 'getComponent',
+	    value: function getComponent() {
+	      return this.props.component || 'button';
 	    }
 	  }]);
 
