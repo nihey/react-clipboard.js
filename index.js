@@ -7,8 +7,11 @@ export default class ClipboardButton extends React.Component {
     className: React.PropTypes.string,
     style: React.PropTypes.string,
     component: React.PropTypes.string,
-    children: React.PropTypes.object,
-    onClick: React.PropTypes.func,
+    children: React.PropTypes.oneOfType([
+      React.PropTypes.element,
+      React.PropTypes.string,
+      React.PropTypes.object,
+    ]),
   }
 
   static defaultProps = {
