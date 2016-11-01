@@ -10,6 +10,7 @@ export default class ClipboardButton extends React.Component {
     children: React.PropTypes.oneOfType([
       React.PropTypes.element,
       React.PropTypes.string,
+      React.PropTypes.number,
       React.PropTypes.object,
     ]),
   }
