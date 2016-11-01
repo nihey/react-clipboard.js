@@ -148,7 +148,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        type: this.getType(),
 	        className: this.props.className || '',
 	        style: this.props.style || {},
-	        ref: 'element'
+	        ref: 'element',
+	        onClick: this.props.onClick
 	      }, this.propsWith(/^data-/), this.propsWith(/^button-/, true));
 
 	      return _react2['default'].createElement(this.getComponent(), attributes, this.props.children);
@@ -167,6 +168,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function getComponent() {
 	      return this.props.component || 'button';
 	    }
+	  }], [{
+	    key: 'propTypes',
+	    value: {
+	      options: _react2['default'].PropTypes.object,
+	      type: _react2['default'].PropTypes.string,
+	      className: _react2['default'].PropTypes.string,
+	      style: _react2['default'].PropTypes.string,
+	      component: _react2['default'].PropTypes.string,
+	      children: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.element, _react2['default'].PropTypes.string, _react2['default'].PropTypes.object])
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {
+	      onClick: function onClick() {}
+	    },
+	    enumerable: true
 	  }]);
 
 	  return ClipboardButton;
