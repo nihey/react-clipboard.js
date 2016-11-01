@@ -2,17 +2,17 @@ import React from 'react';
 
 export default class ClipboardButton extends React.Component {
   static propTypes = {
-     options: React.PropTypes.object,
-     type: React.PropTypes.string,
-     className: React.PropTypes.string,
-     style: React.PropTypes.string,
-     component: React.PropTypes.string,
-     children: React.PropTypes.object,
-     onClick: React.PropTypes.func,
+    options: React.PropTypes.object,
+    type: React.PropTypes.string,
+    className: React.PropTypes.string,
+    style: React.PropTypes.string,
+    component: React.PropTypes.string,
+    children: React.PropTypes.object,
+    onClick: React.PropTypes.func,
   }
 
   static defaultProps = {
-    onClick: function() {}
+    onClick: function() {},
   }
 
   /* Returns a object with all props that fulfill a certain naming pattern
