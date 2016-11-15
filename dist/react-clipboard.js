@@ -174,9 +174,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      options: _react2['default'].PropTypes.object,
 	      type: _react2['default'].PropTypes.string,
 	      className: _react2['default'].PropTypes.string,
-	      style: _react2['default'].PropTypes.string,
+	      style: _react2['default'].PropTypes.object,
 	      component: _react2['default'].PropTypes.string,
-	      children: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.element, _react2['default'].PropTypes.string, _react2['default'].PropTypes.object])
+	      children: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.element, _react2['default'].PropTypes.string, _react2['default'].PropTypes.number, _react2['default'].PropTypes.object])
 	    },
 	    enumerable: true
 	  }, {
