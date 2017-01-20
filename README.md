@@ -15,20 +15,20 @@ $ npm i --save react-clipboard.js
 # Usage
 You can use `clipboard.js` original `data-*` attributes:
 ```javascript
-var React = require('react');
-var ClipboardButton = require('react-clipboard.js');
+import React, { Component } from 'react';
+import ClipboardButton from 'react-clipboard.js';
 
-var MyView = React.createClass({
-  render: function() {
-    return <div>
+class MyView extends Component {
+  render() {
+    return (
       <ClipboardButton data-clipboard-text="I'll be copied">
         copy to clipboard
       </ClipboardButton>
-    </div>;
-  },
-});
+    );
+  }
+}
 
-React.render(<MyView/>, document.getElementById('react-body'));
+React.render(<MyView/>, document.getElementById('app'));
 ```
 
 - If you want to provide any constructor option as in `new Clipboard('#id', options)`,
@@ -36,19 +36,26 @@ React.render(<MyView/>, document.getElementById('react-body'));
 
 - callbacks will be connected via `on*` attributes (such as onSuccess)
 ```javascript
-var React = require('react');
-var ClipboardButton = require('react-clipboard.js');
+import React, { Component } from 'react';
+import ClipboardButton from 'react-clipboard.js';
 
-var MyView = React.createClass({
-  onSuccess: function() {
+class MyView extends Component {
+  constructor() {
+    super();
+
+    this.onSuccess = this.onSuccess.bind(this);
+    this.getText = this.getText.bind(this);
+  }
+
+  onSuccess() {
     console.info('successfully coppied');
-  },
+  }
 
-  getText: function() {
+  getText() {
     return 'I\'ll be copied';
-  },
+  }
 
-  render: function() {
+  render() {
     // Providing option-text as this.getText works the same way as providing:
     //
     // var clipboard = new Clipboard('#anything', {
@@ -58,50 +65,49 @@ var MyView = React.createClass({
     // onSuccess works as a 'success' callback:
     //
     // clipboard.on('success', this.onSuccess);
-    return <div>
+    return (
       <ClipboardButton option-text={this.getText} onSuccess={this.onSuccess}>
         copy to clipboard
       </ClipboardButton>
-    </div>;
-  },
-});
+    );
+  }
+}
 
-React.render(<MyView/>, document.getElementById('react-body'));
+React.render(<MyView/>, document.getElementById('app'));
 ```
 
 Custom HTML tags may be used as well:
 ```javascript
-var React = require('react');
-var Clipboard = require('react-clipboard.js');
+import React, { Component } from 'react';
+import ClipboardButton from 'react-clipboard.js';
 
-var MyView = React.createClass({
-  render: function() {
+class MyView extends Component {
+  render() {
     // Clipboard is now rendered as an '<a>'
-    return <div>
+    return (
       <Clipboard component="a" button-href="#" data-clipboard-text="I'll be copied">
         copy to clipboard
       </Clipboard>
-    </div>;
-  },
-});
+    );
+  }
+}
 
-...
 ```
 
 Default html properties may be passed with the `button-*` pattern:
 ```javascript
-var React = require('react');
-var ClipboardButton = require('react-clipboard.js');
+import React, { Component } from 'react';
+import ClipboardButton from 'react-clipboard.js';
 
-var MyView = React.createClass({
-  render: function() {
-    return <div>
+class MyView extends Component {
+  render() {
+    return (
       <ClipboardButton data-clipboard-text="I'll be copied" button-title="I'm a tooltip">
         copy to clipboard
       </ClipboardButton>
-    </div>;
-  },
-});
+    );
+  }
+}
 
 React.render(<MyView/>, document.getElementById('react-body'));
 ```
