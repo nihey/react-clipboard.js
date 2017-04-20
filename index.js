@@ -1,17 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class ClipboardButton extends React.Component {
   static propTypes = {
-    options: React.PropTypes.object,
-    type: React.PropTypes.string,
-    className: React.PropTypes.string,
-    style: React.PropTypes.object,
-    component: React.PropTypes.string,
-    children: React.PropTypes.oneOfType([
-      React.PropTypes.element,
-      React.PropTypes.string,
-      React.PropTypes.number,
-      React.PropTypes.object,
+    options: PropTypes.object,
+    type: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    component: PropTypes.string,
+    children: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
     ]),
   }
 
