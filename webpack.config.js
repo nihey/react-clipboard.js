@@ -13,6 +13,7 @@ module.exports = {
   },
   externals: [
     {react: {root: 'React', amd: 'react', commonjs: 'react', commonjs2: 'react'}},
+    {'prop-types': {root: 'PropTypes', amd: 'prop-types', commonjs: 'prop-types', commonjs2: 'prop-types'}},
     {clipboard: {root: 'Clipboard', amd: 'clipboard', commonjs: 'clipboard', commonjs2: 'clipboard'}}
   ]
 };
