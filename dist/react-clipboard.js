@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"), require("clipboard"));
+		module.exports = factory(require("react"), require("prop-types"), require("clipboard"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react", "clipboard"], factory);
+		define(["react", "prop-types", "clipboard"], factory);
 	else if(typeof exports === 'object')
-		exports["ReactClipboard"] = factory(require("react"), require("clipboard"));
+		exports["ReactClipboard"] = factory(require("react"), require("prop-types"), require("clipboard"));
 	else
-		root["ReactClipboard"] = factory(root["React"], root["Clipboard"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_40__, __WEBPACK_EXTERNAL_MODULE_41__) {
+		root["ReactClipboard"] = factory(root["React"], root["PropTypes"], root["Clipboard"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_40__, __WEBPACK_EXTERNAL_MODULE_41__, __WEBPACK_EXTERNAL_MODULE_42__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -78,6 +78,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(41);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	var ClipboardButton = (function (_React$Component) {
 	  _inherits(ClipboardButton, _React$Component);
 
@@ -133,7 +137,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // Support old API by trying to assign this.props.options first;
 	      var options = this.props.options || this.propsWith(/^option-/, true);
 	      var element = _react2['default'].version.match(/0\.13(.*)/) ? this.refs.element.getDOMNode() : this.refs.element;
-	      var Clipboard = __webpack_require__(41);
+	      var Clipboard = __webpack_require__(42);
 	      this.clipboard = new Clipboard(element, options);
 
 	      var callbacks = this.propsWith(/^on/, true);
@@ -171,12 +175,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }], [{
 	    key: 'propTypes',
 	    value: {
-	      options: _react2['default'].PropTypes.object,
-	      type: _react2['default'].PropTypes.string,
-	      className: _react2['default'].PropTypes.string,
-	      style: _react2['default'].PropTypes.object,
-	      component: _react2['default'].PropTypes.string,
-	      children: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.element, _react2['default'].PropTypes.string, _react2['default'].PropTypes.number, _react2['default'].PropTypes.object])
+	      options: _propTypes2['default'].object,
+	      type: _propTypes2['default'].string,
+	      className: _propTypes2['default'].string,
+	      style: _propTypes2['default'].object,
+	      component: _propTypes2['default'].string,
+	      children: _propTypes2['default'].oneOfType([_propTypes2['default'].element, _propTypes2['default'].string, _propTypes2['default'].number, _propTypes2['default'].object])
 	    },
 	    enumerable: true
 	  }, {
@@ -774,6 +778,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_41__;
+
+/***/ },
+/* 42 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_42__;
 
 /***/ }
 /******/ ])
