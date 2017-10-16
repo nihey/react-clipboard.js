@@ -1,6 +1,9 @@
 # vim temporary files
 *.sw*
 
+# IntelliJ temporary files
+.idea
+
 # Dependencies
 node_modules/
 bower_components/

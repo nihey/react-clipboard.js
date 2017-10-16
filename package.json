@@ -38,6 +38,6 @@
     "babel-runtime": "^5.8.20",
     "browser-sync": "^2.8.2",
     "eslint": "^1.6.0",
-    "webpack": "^1.12.1"
+    "webpack": "^3.7.1"
   }
 }
