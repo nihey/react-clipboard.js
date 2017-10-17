@@ -12,7 +12,7 @@ module.exports = {
         loaders: [{
             test: /\.js?$/,
             exclude: /(node_modules|bower_components)/,
-            loader: 'babel-loader?optional[]=runtime&stage=0'
+            loader: 'babel-loader'
         }]
     },
     externals: [
