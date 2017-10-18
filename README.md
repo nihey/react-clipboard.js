@@ -79,7 +79,7 @@ React.render(<MyView/>, document.getElementById('app'));
 Custom HTML tags may be used as well:
 ```javascript
 import React, { Component } from 'react';
-import ClipboardButton from 'react-clipboard.js';
+import Clipboard from 'react-clipboard.js';
 
 class MyView extends Component {
   render() {
