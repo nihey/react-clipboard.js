@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class ClipboardButton extends React.Component {
+class ClipboardButton extends React.Component {
   static propTypes = {
     options: PropTypes.object,
     type: PropTypes.string,
@@ -100,3 +100,5 @@ export default class ClipboardButton extends React.Component {
     return this.props.component || 'button';
   }
 }
+
+export default ClipboardButton;
