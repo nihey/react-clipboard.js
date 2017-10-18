@@ -16,14 +16,14 @@ $ npm i --save react-clipboard.js
 You can use `clipboard.js` original `data-*` attributes:
 ```javascript
 import React, { Component } from 'react';
-import ClipboardButton from 'react-clipboard.js';
+import Clipboard from 'react-clipboard.js';
 
 class MyView extends Component {
   render() {
     return (
-      <ClipboardButton data-clipboard-text="I'll be copied">
+      <Clipboard data-clipboard-text="I'll be copied">
         copy to clipboard
-      </ClipboardButton>
+      </Clipboard>
     );
   }
 }
@@ -37,7 +37,7 @@ React.render(<MyView/>, document.getElementById('app'));
 - callbacks will be connected via `on*` attributes (such as onSuccess)
 ```javascript
 import React, { Component } from 'react';
-import ClipboardButton from 'react-clipboard.js';
+import Clipboard from 'react-clipboard.js';
 
 class MyView extends Component {
   constructor() {
@@ -66,9 +66,9 @@ class MyView extends Component {
     //
     // clipboard.on('success', this.onSuccess);
     return (
-      <ClipboardButton option-text={this.getText} onSuccess={this.onSuccess}>
+      <Clipboard option-text={this.getText} onSuccess={this.onSuccess}>
         copy to clipboard
-      </ClipboardButton>
+      </Clipboard>
     );
   }
 }
@@ -97,14 +97,14 @@ class MyView extends Component {
 Default html properties may be passed with the `button-*` pattern:
 ```javascript
 import React, { Component } from 'react';
-import ClipboardButton from 'react-clipboard.js';
+import Clipboard from 'react-clipboard.js';
 
 class MyView extends Component {
   render() {
     return (
-      <ClipboardButton data-clipboard-text="I'll be copied" button-title="I'm a tooltip">
+      <Clipboard data-clipboard-text="I'll be copied" button-title="I'm a tooltip">
         copy to clipboard
-      </ClipboardButton>
+      </Clipboard>
     );
   }
 }
