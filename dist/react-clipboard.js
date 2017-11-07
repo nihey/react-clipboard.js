@@ -159,7 +159,7 @@ var ClipboardButton = function (_React$Component) {
     value: function componentDidMount() {
       // Support old API by trying to assign this.props.options first;
       var options = this.props.options || this.propsWith(/^option-/, true);
-      var element = _react2.default.version.match(/0\.13(.*)/) ? this.refs.element.getDOMNode() : this.refs.element;
+      var element = _react2.default.version.match(/0\.13(.*)/) ? this.refs.element.getDOMNode() : this.element;
       var Clipboard = __webpack_require__(3);
       this.clipboard = new Clipboard(element, options);
 
@@ -171,11 +171,15 @@ var ClipboardButton = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var attributes = _extends({
         type: this.getType(),
         className: this.props.className || '',
         style: this.props.style || {},
-        ref: 'element',
+        ref: function ref(element) {
+          _this2.element = element;
+        },
         onClick: this.props.onClick
       }, this.propsWith(/^data-/), this.propsWith(/^button-/, true));
 
