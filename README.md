@@ -48,7 +48,7 @@ class MyView extends Component {
   }
 
   onSuccess() {
-    console.info('successfully coppied');
+    console.info('successfully copied');
   }
 
   getText() {
