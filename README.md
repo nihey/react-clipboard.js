@@ -15,6 +15,7 @@ $ npm i --save react-clipboard.js
 # Usage
 You can use `clipboard.js` original `data-*` attributes:
 ```javascript
+import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import Clipboard from 'react-clipboard.js';
 
@@ -28,7 +29,7 @@ class MyView extends Component {
   }
 }
 
-React.render(<MyView/>, document.getElementById('app'));
+ReactDOM.render(<MyView/>, document.getElementById('app'));
 ```
 
 - If you want to provide any constructor option as in `new Clipboard('#id', options)`,
@@ -36,6 +37,7 @@ React.render(<MyView/>, document.getElementById('app'));
 
 - callbacks will be connected via `on*` attributes (such as onSuccess)
 ```javascript
+import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import Clipboard from 'react-clipboard.js';
 
@@ -73,11 +75,12 @@ class MyView extends Component {
   }
 }
 
-React.render(<MyView/>, document.getElementById('app'));
+ReactDOM.render(<MyView/>, document.getElementById('app'));
 ```
 
 Custom HTML tags may be used as well:
 ```javascript
+import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import Clipboard from 'react-clipboard.js';
 
@@ -92,10 +95,12 @@ class MyView extends Component {
   }
 }
 
+ReactDOM.render(<MyView/>, document.getElementById('app'));
 ```
 
 Default html properties may be passed with the `button-*` pattern:
 ```javascript
+import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import Clipboard from 'react-clipboard.js';
 
@@ -109,7 +114,7 @@ class MyView extends Component {
   }
 }
 
-React.render(<MyView/>, document.getElementById('react-body'));
+ReactDOM.render(<MyView/>, document.getElementById('react-body'));
 ```
 
 # License

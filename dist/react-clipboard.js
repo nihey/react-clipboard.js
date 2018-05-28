@@ -7,7 +7,7 @@
 		exports["ReactClipboard"] = factory(require("react"), require("prop-types"), require("clipboard"));
 	else
 		root["ReactClipboard"] = factory(root["React"], root["PropTypes"], root["Clipboard"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__) {
+})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -83,6 +83,8 @@ return /******/ (function(modules) { // webpackBootstrap
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -205,7 +207,19 @@ var ClipboardButton = function (_React$Component) {
 }(_react2.default.Component);
 
 ClipboardButton.propTypes = {
-  options: _propTypes2.default.object,
+  options: function options(props, propName, componentName) {
+    var options = props[propName];
+    if (options && (typeof options === 'undefined' ? 'undefined' : _typeof(options)) !== 'object' || Array.isArray(options)) {
+      return new Error('Invalid props \'' + propName + '\' supplied to \'' + componentName + '\'. ' + ('\'' + propName + '\' is not an object.'));
+    }
+
+    if (props['option-text'] !== undefined) {
+      var optionText = props['option-text'];
+      if (typeof optionText !== 'function') {
+        return new Error('Invalid props \'option-text\' supplied to \'' + componentName + '\'. ' + '\'option-text\' is not a function.');
+      }
+    }
+  },
   type: _propTypes2.default.string,
   className: _propTypes2.default.string,
   style: _propTypes2.default.object,
