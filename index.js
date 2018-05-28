@@ -3,7 +3,21 @@ import PropTypes from 'prop-types';
 
 class ClipboardButton extends React.Component {
   static propTypes = {
-    options: PropTypes.object,
+    options: function(props, propName, componentName) {
+      const options = props[propName];
+      if (options && typeof options !== 'object' || Array.isArray(options)) {
+        return new Error(`Invalid props '${propName}' supplied to '${componentName}'. ` +
+        `'${propName}' is not an object.`);
+      }
+
+      if (props['option-text'] !== undefined) {
+        const optionText = props['option-text'];
+        if (typeof optionText !== 'function') {
+          return new Error(`Invalid props 'option-text' supplied to '${componentName}'. ` +
+          `'option-text' is not a function.`);
+        }
+      }
+    },
     type: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
