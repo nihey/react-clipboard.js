@@ -74,7 +74,7 @@ class ClipboardButton extends React.Component {
     const options = this.props.options || this.propsWith(/^option-/, true);
     const element = React.version.match(/0\.13(.*)/)
       ? this.refs.element.getDOMNode() : this.element;
-    const Clipboard = require('clipboardjs');
+    const Clipboard = require('clipboard');
     this.clipboard = new Clipboard(element, options);
 
     const callbacks = this.propsWith(/^on/, true);
