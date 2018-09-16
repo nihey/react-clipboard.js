@@ -6,7 +6,7 @@
 	else if(typeof exports === 'object')
 		exports["ReactClipboard"] = factory(require("react"), require("prop-types"), require("clipboard"));
 	else
-		root["ReactClipboard"] = factory(root["React"], root["PropTypes"], root["Clipboard"]);
+		root["ReactClipboard"] = factory(root["React"], root["PropTypes"], root["ClipboardJS"]);
 })(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
