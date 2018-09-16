@@ -1,12 +1,12 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"), require("prop-types"), require("clipboard"));
+		module.exports = factory(require("react"), require("prop-types"), require("clipboardjs"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react", "prop-types", "clipboard"], factory);
+		define(["react", "prop-types", "clipboardjs"], factory);
 	else if(typeof exports === 'object')
-		exports["ReactClipboard"] = factory(require("react"), require("prop-types"), require("clipboard"));
+		exports["ReactClipboard"] = factory(require("react"), require("prop-types"), require("clipboardjs"));
 	else
-		root["ReactClipboard"] = factory(root["React"], root["PropTypes"], root["Clipboard"]);
+		root["ReactClipboard"] = factory(root["React"], root["PropTypes"], root["ClipboardJS"]);
 })(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
