@@ -24,6 +24,7 @@ class ClipboardButton extends React.Component {
     component: PropTypes.string,
     children: PropTypes.oneOfType([
       PropTypes.element,
+      PropTypes.arrayOf(PropTypes.element),
       PropTypes.string,
       PropTypes.number,
       PropTypes.object,
