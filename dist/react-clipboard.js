@@ -224,7 +224,7 @@ ClipboardButton.propTypes = {
   className: _propTypes2.default.string,
   style: _propTypes2.default.object,
   component: _propTypes2.default.string,
-  children: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.string, _propTypes2.default.number, _propTypes2.default.object])
+  children: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.arrayOf(_propTypes2.default.element), _propTypes2.default.string, _propTypes2.default.number, _propTypes2.default.object])
 };
 ClipboardButton.defaultProps = {
   onClick: function onClick() {} };
