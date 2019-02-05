@@ -4,6 +4,7 @@
   "description": "Clipboard.js wrapper for ReactJS",
   "main": "dist/react-clipboard.js",
   "browser": "dist/react-clipboard.js",
+  "types": "./react-clipboard.d.ts",
   "scripts": {
     "build-debug": "webpack -d",
     "build": "webpack && webpack -p --output-filename react-clipboard.min.js",
