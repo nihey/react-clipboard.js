@@ -18,6 +18,7 @@ class ClipboardButton extends React.Component {
         }
       }
     },
+    title: PropTypes.string,
     type: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
@@ -86,6 +87,7 @@ class ClipboardButton extends React.Component {
 
   render() {
     const attributes = {
+      title: this.props.title || '',
       type: this.getType(),
       className: this.props.className || '',
       style: this.props.style || {},
