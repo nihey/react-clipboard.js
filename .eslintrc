@@ -16,11 +16,13 @@
     "node": true
   },
   "extends": "eslint:recommended",
-  "ecmaFeatures": {
-    "classes": true,
-    "jsx": true,
-    "modules": true,
-    "experimentalObjectRestSpread": true
+  "parserOptions": {
+    "ecmaFeatures": {
+      "classes": true,
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    },
   },
   "plugins": [
   ],

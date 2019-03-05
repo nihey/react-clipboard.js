@@ -6,8 +6,8 @@
   "browser": "dist/react-clipboard.js",
   "types": "./react-clipboard.d.ts",
   "scripts": {
-    "build-debug": "webpack --move development",
-    "build": "webpack && webpack --mode production --output-filename react-clipboard.min.js",
+    "build-debug": "webpack --mode development",
+    "build": "npm run build-debug && webpack --mode production --output-filename react-clipboard.min.js",
     "watch": "webpack --watch",
     "test": "eslint index.js && npm run build"
   },
@@ -37,6 +37,7 @@
     "@babel/core": "^7.3.3",
     "@babel/plugin-proposal-class-properties": "^7.3.3",
     "@babel/plugin-proposal-function-bind": "^7.2.0",
+    "@babel/preset-env": "^7.3.4",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "browser-sync": "^2.8.2",
