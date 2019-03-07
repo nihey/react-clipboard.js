@@ -6,7 +6,6 @@ interface ClipboardButtonProps {
     className?: string;
     style?: React.CSSProperties;
     component?: any;
-    children?: React.ReactChild;
     onClick?: any;
     onSuccess?: (e: ClipboardJS.Event) => void;
     onError?: (e: ClipboardJS.Event) => void;
