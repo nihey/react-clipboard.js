@@ -7,7 +7,7 @@
 		exports["ReactClipboard"] = factory(require("clipboard"), require("prop-types"), require("react"));
 	else
 		root["ReactClipboard"] = factory(root["ClipboardJS"], root["PropTypes"], root["React"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE_clipboard__, __WEBPACK_EXTERNAL_MODULE_prop_types__, __WEBPACK_EXTERNAL_MODULE_react__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_clipboard__, __WEBPACK_EXTERNAL_MODULE_prop_types__, __WEBPACK_EXTERNAL_MODULE_react__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
