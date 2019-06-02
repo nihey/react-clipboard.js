@@ -22,7 +22,7 @@ class ClipboardButton extends React.Component {
     type: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
-    component: PropTypes.string,
+    component: PropTypes.node,
     children: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.arrayOf(PropTypes.element),
