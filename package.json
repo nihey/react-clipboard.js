@@ -1,12 +1,12 @@
 {
   "name": "react-clipboard.js",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Clipboard.js wrapper for ReactJS",
   "main": "dist/react-clipboard.js",
   "browser": "dist/react-clipboard.js",
   "types": "./react-clipboard.d.ts",
   "scripts": {
-    "build-debug": "webpack --mode development",
+    "build-debug": "webpack --mode development --devtool inline-source-map",
     "build": "npm run build-debug && webpack --mode production --output-filename react-clipboard.min.js",
     "watch": "webpack --watch",
     "test": "eslint index.js && npm run build"
