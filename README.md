@@ -78,7 +78,8 @@ class MyView extends Component {
 ReactDOM.render(<MyView/>, document.getElementById('app'));
 ```
 
-Custom HTML tags may be used as well:
+Custom HTML tags may be used as well (you can use custom components as well):
+**Beware: Stateless/Functional components are yet to be added**
 ```javascript
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
