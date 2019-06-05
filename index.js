@@ -26,13 +26,7 @@ class ClipboardButton extends React.Component {
     className: PropTypes.string,
     style: PropTypes.object,
     component: PropTypes.any,
-    children: PropTypes.oneOfType([
-      PropTypes.element,
-      PropTypes.arrayOf(PropTypes.element),
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
+    children: PropTypes.any,
   }
 
   static defaultProps = {
