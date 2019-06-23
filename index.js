@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 class ClipboardButton extends React.Component {
-  element = React.createRef();
-
   static propTypes = {
     options: function(props, propName, componentName) {
       const options = props[propName];
@@ -71,7 +69,7 @@ class ClipboardButton extends React.Component {
   componentDidMount() {
     // Support old API by trying to assign this.props.options first;
     const options = this.props.options || this.propsWith(/^option-/, true);
-    const element = ReactDOM.findDOMNode(this.element.current);
+    const element = ReactDOM.findDOMNode(this.element);
     const Clipboard = require('clipboard');
     this.clipboard = new Clipboard(element, options);
 
@@ -87,7 +85,7 @@ class ClipboardButton extends React.Component {
       type: this.getType(),
       className: this.props.className || '',
       style: this.props.style || {},
-      ref: this.element,
+      ref: element => this.element = element,
       onClick: this.props.onClick,
       ...this.propsWith(/^data-/),
       ...this.propsWith(/^button-/, true),
