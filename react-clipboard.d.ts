@@ -2,6 +2,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 interface ClipboardButtonProps {
+    isVisibleWhenUnsupported?: boolean;
     type?: string;
     className?: string;
     style?: React.CSSProperties;

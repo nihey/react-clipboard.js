@@ -70,6 +70,10 @@ class ClipboardButton extends React.Component {
     // Support old API by trying to assign this.props.options first;
     const options = this.props.options || this.propsWith(/^option-/, true);
     const element = ReactDOM.findDOMNode(this.element);
+    if (!element) {
+      return;
+    }
+
     const Clipboard = require('clipboard');
     this.clipboard = new Clipboard(element, options);
 
@@ -90,6 +94,11 @@ class ClipboardButton extends React.Component {
       ...this.propsWith(/^data-/),
       ...this.propsWith(/^button-/, true),
     };
+
+    const Clipboard = require('clipboard');
+    if (!this.props.isVisibleWhenUnsupported && !Clipboard.isSupported()) {
+      return null;
+    }
 
     return React.createElement(
       this.getComponent(),
