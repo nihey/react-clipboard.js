@@ -28,6 +28,7 @@ class ClipboardButton extends React.Component {
   }
 
   static defaultProps = {
+    isVisibleWhenUnsupported: true,
     onClick: function() {},
   }
 
