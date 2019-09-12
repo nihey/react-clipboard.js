@@ -1,6 +1,6 @@
 {
   "name": "react-clipboard.js",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "description": "Clipboard.js wrapper for ReactJS",
   "main": "dist/react-clipboard.js",
   "browser": "dist/react-clipboard.js",
